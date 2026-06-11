@@ -1,0 +1,49 @@
+.main-footer {
+  width: 100%;
+  background-color: #0c0c0c;
+  border-top: 1px solid #1a1a1a;
+  padding: 25px 40px;
+  margin-top: auto; /* Hace que si la página tiene poco contenido, el footer se quede abajo */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.footer-brand h3 {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.footer-brand p {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.footer-info {
+  display: flex;
+  gap: 20px;
+  font-size: 0.8rem;
+  color: #444;
+}
+
+.footer-link {
+  color: #4444ff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}

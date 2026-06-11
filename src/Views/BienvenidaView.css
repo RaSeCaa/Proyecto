@@ -1,0 +1,317 @@
+/* RESET GENERAL COHESIVO */
+.bienvenida-layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100%; /* 💡 Cambiado de 100vw a 100% para eliminar el descuadre por barras de scroll */
+  background-color: #0d0d12; /* Gris espacial ultra oscuro */
+  font-family: system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Asegura que todos los elementos calculen bien el tamaño */
+.bienvenida-layout *, 
+.bienvenida-layout *::before, 
+.bienvenida-layout *::after {
+  box-sizing: inherit;
+}
+
+/* ==========================================================================
+   PANEL IZQUIERDO (DEGRADADO AZUL/VIOLETA - ESTILO ODYSSEY)
+   ========================================================================== */
+.layout-panel-branding {
+  flex: 1.2;
+  /* 🎨 Paleta: Azul profundo hacia Violeta de medianoche */
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0d0d12 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  border-right: 1px solid #1e1e2f;
+}
+
+.branding-wrapper {
+  max-width: 440px;
+  text-align: left;
+}
+
+.brand-logo-huge {
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -1px;
+  margin: 0 0 12px 0;
+  text-shadow: 0 4px 30px rgba(79, 70, 229, 0.4);
+}
+
+.brand-subtitle {
+  color: #6366f1; /* Azul eléctrico claro */
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.brand-text {
+  color: #9cbdca; /* Gris azulado de alta legibilidad */
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.mobile-only-logo {
+  display: none;
+}
+
+/* ==========================================================================
+   PANEL DERECHO (TARJETA DE AUTENTICACIÓN)
+   ========================================================================== */
+.layout-panel-auth {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background-color: #08080c; /* Fondo negro profundo para contraste radical */
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 360px;
+  background-color: #111116; /* Gris carbón para la tarjeta */
+  border: 1px solid #222230;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* PESTAÑAS */
+.auth-tabs-nav {
+  display: flex;
+  background-color: #181824;
+  padding: 4px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.nav-tab-btn {
+  flex: 1;
+  background: none;
+  border: none;
+  color: #8e939e;
+  padding: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-tab-btn.is-active {
+  background-color: #252538;
+  color: #ffffff;
+}
+
+/* FORMULARIOS e INPUTS */
+.interactive-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-field label {
+  color: #9ca3af;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 11px 14px;
+  background-color: #161622;
+  border: 1px solid #2a2a3a;
+  color: #ffffff;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+}
+
+.form-field input:focus {
+  border-color: #6366f1;
+  outline: none;
+}
+
+/* ==========================================================================
+   CAPTCHA CORREGIDO (ENCAPSULADO SIN DESCUADRES)
+   ========================================================================== */
+.captcha-wrapper-box {
+  background-color: #181824;
+  border: 1px solid #2a2a3a;
+  border-radius: 8px;
+  padding: 12px;
+  width: 100%; /* Asegura que no se estire más que el contenedor padre */
+  box-sizing: border-box;
+}
+
+.captcha-wrapper-box label {
+  display: block;
+  color: #6b7280;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+/* Usamos grid para dar un espacio fijo al código y al botón, y el resto al input */
+.captcha-flex-row {
+  display: grid;
+  grid-template-columns: auto auto 1fr; 
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.captcha-display-code {
+  background-color: #08080c;
+  color: #10b981;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 6px 10px;
+  border-radius: 4px;
+  letter-spacing: 2px;
+  border: 1px dashed #10b981;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.refresh-code-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+.refresh-code-btn:hover {
+  transform: rotate(45deg);
+}
+
+.captcha-flex-row input {
+  width: 100%; /* Ahora se acopla exactamente al espacio restante del grid */
+  padding: 8px 10px;
+  background-color: #0d0d12;
+  border: 1px solid #2a2a3a;
+  color: white;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  box-sizing: border-box; /* Crucial para que el padding no lo empuje hacia afuera */
+}
+
+.captcha-flex-row input:focus {
+  border-color: #6366f1;
+  outline: none;
+}
+
+/* FUERZA CONTRASEÑA */
+.strength-badge {
+  margin-top: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+.badge-débil { background-color: rgba(239, 68, 68, 0.1); color: #ef4444; }
+.badge-intermedio { background-color: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+.badge-fuerte { background-color: rgba(16, 185, 129, 0.1); color: #10b981; }
+
+/* BOTONES CON PERSONALIDAD */
+.action-main-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 8px;
+}
+
+.btn-color-login { background-color: #4f46e5; } /* Azul Índigo */
+.btn-color-login:hover { background-color: #4338ca; }
+
+.btn-color-register { background-color: #d97706; } /* Ámbar/Naranja Corporativo */
+.btn-color-register:hover { background-color: #b45309; }
+
+/* INVITADO AL PIE */
+.guest-action-footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.guest-text { color: #52526b; }
+.guest-link-btn {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.guest-link-btn:hover { color: #6366f1; }
+
+/* RESPONSIVE MÓVIL SÚPER SIMPLIFICADO */
+@media (max-width: 880px) {
+  .bienvenida-layout {
+    flex-direction: column;
+    justify-content: center;
+    background-color: #08080c;
+  }
+  .layout-panel-branding { display: none; }
+  .layout-panel-auth { padding: 20px; width: 100%; }
+  .mobile-only-logo { display: block; margin-bottom: 16px; }
+  .mobile-only-logo h2 { color: #ffffff; font-size: 1.8rem; font-weight: 900; margin: 0; }
+  .auth-card { padding: 10px; border: none; background-color: transparent; box-shadow: none; }
+}
+
+/* BOTÓN "COMPLETAR REGISTRO" APAGADO Y BLOQUEADO (Cuando son diferentes o muy cortas) */
+.action-main-btn.btn-registro-inactivo {
+  background-color: #1e1e24 !important;
+  color: #4b4b5a !important;
+  border: 1px solid #2a2a3a !important;
+  cursor: not-allowed !important;
+  opacity: 0.6;
+  box-shadow: none !important;
+}
+
+/* BOTÓN "COMPLETAR REGISTRO" ENCENDIDO Y ACTIVO (Cuando todo coincide perfectamente) */
+.action-main-btn.btn-registro-listo {
+  background-color: #d97706 !important; /* Tu naranja corporativo */
+  color: #ffffff !important;
+  border: none !important;
+  cursor: pointer !important;
+  opacity: 1;
+  box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3) !important;
+  transition: all 0.2s ease-in-out;
+}
+
+.action-main-btn.btn-registro-listo:hover {
+  background-color: #b45309 !important;
+}

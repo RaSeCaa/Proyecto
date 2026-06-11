@@ -1,0 +1,216 @@
+/* ==========================================================================
+   1. CUADRÍCULA PRINCIPAL Y DISEÑO BASE (PC)
+   ========================================================================== */
+.catalogo-container {
+  color: #fff;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.catalogo-header {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #1f2330;
+  padding-bottom: 15px;
+}
+
+.catalogo-title {
+  font-size: 1.6rem;
+  color: #4444ff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* El Grid original para PC */
+.catalogo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* La tarjeta cuadrada base para computadoras */
+.producto-card {
+  background: linear-gradient(145deg, #16161a, #0f0f12);
+  border-radius: 16px;
+  padding: 24px;
+  aspect-ratio: 1 / 1;
+  max-width: 340px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #222634;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.producto-card:hover {
+  transform: translateY(-5px);
+  border-color: #3b82f6;
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
+}
+
+/* Caja contenedora del logo en PC */
+.producto-logo-box {
+  background-color: #090a0f;
+  border: 1px solid #1e2235;
+  width: 100px;
+  height: 100px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.producto-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+}
+
+.producto-titulo {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 12px 0 6px 0;
+  color: #f3f4f6;
+}
+
+.producto-precio {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.producto-precio-unidad {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.producto-accion {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+/* Contador de unidades */
+.contador-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: #1e2235;
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid #333a56;
+}
+
+.btn-contador {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.cantidad-texto {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   2. REGLAS ULTRA-RESPONSIVAS PARA CELULARES (DISEÑO PREMIUM EN 2 COLUMNAS)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .catalogo-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    padding: 4px !important;
+  }
+
+  .producto-card {
+    aspect-ratio: auto !important; 
+    padding: 16px 10px !important;
+    border-radius: 14px !important;
+    gap: 10px !important;
+  }
+  
+  .producto-card:active {
+    transform: scale(0.97) !important;
+    background: linear-gradient(145deg, #111114, #0a0a0d) !important;
+  }
+
+  /* 💥 EL CAMBIO: Caja mucho más grande y sin relleno interno excesivo para el logo */
+  .producto-logo-box {
+    width: 90px !important;      /* Expandido para abarcar casi todo el ancho disponible */
+    height: 75px !important;     /* Altura proporcional ideal para logos apaisados */
+    padding: 4px !important;      /* Reducido al mínimo para dejar que la imagen crezca al doble */
+    background-color: #050608 !important;
+    border-radius: 10px !important;
+    border: 1px solid #23283d !important;
+  }
+
+  /* Forzamos al logo a ocupar absolutamente todo el espacio de su caja */
+  .producto-logo {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important; /* Mantiene la proporción perfecta sin estirarse */
+  }
+
+  .producto-titulo {
+    font-size: 0.95rem !important;
+    margin: 6px 0 2px 0 !important;
+    line-height: 1.2 !important;
+    font-weight: 600 !important;
+    word-break: break-word;
+  }
+
+  .producto-precio {
+    font-size: 1.1rem !important;
+    margin: 2px 0 !important;
+    font-weight: 700 !important;
+  }
+
+  .producto-precio-unidad {
+    font-size: 0.75rem !important;
+  }
+
+  .producto-accion {
+    font-size: 0.75rem !important;
+    color: #3b82f6 !important; /* Color azul más llamativo para invitar a tocar */
+    margin-top: 2px !important;
+    font-weight: 500;
+  }
+
+  /* Adaptación estética del contador táctil móvil */
+  .contador-box {
+    gap: 8px !important;
+    padding: 6px 12px !important;
+    width: 100% !important; /* Ajustado por completo al ancho interno de la tarjeta */
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+    border-radius: 10px !important;
+    background-color: #22c55e !important; /* Pinta el botón en verde cuando ya está añadido */
+    border: none !important;
+  }
+
+  .btn-contador {
+    font-size: 1.2rem !important;
+    padding: 0px 8px !important;
+    color: #fff !important;
+  }
+
+  .cantidad-texto {
+    font-size: 1rem !important;
+    color: #fff !important;
+  }
+}

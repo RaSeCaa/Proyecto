@@ -1,0 +1,83 @@
+.carrito-container {
+  color: #fff;
+}
+
+.carrito-header {
+  margin-bottom: 25px;
+}
+
+.carrito-title {
+  font-size: 1.8rem;
+  margin: 0 0 5px 0;
+}
+
+/* Fuerza el diseño de dos columnas en pantallas de PC y Tablets */
+.carrito-layout {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+/* Columna izquierda toma más espacio */
+.carrito-lista {
+  flex: 1.4;
+  background-color: #0c0c0c;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #1a1a1a;
+}
+
+/* Columna derecha fija para la pasarela de pago */
+.pago-box {
+  flex: 1;
+  background-color: #0c0c0c;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #1a1a1a;
+}
+
+.carrito-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #111;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  border: 1px solid #1c1c1c;
+}
+
+/* Oculta por completo el input feo por defecto */
+.input-file-hidden {
+  display: none !important;
+}
+
+/* Diseña el label como un botón elegante */
+.btn-file-custom {
+  display: block;
+  text-align: center;
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #333;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-file-custom:hover {
+  background-color: #2b2b2b;
+  border-color: #4444ff;
+}
+
+/* Vista responsiva para pantallas pequeñas */
+@media (max-width: 768px) {
+  .carrito-layout {
+    flex-direction: column;
+  }
+  .carrito-lista, .pago-box {
+    width: 100%;
+  }
+}
