@@ -11,7 +11,7 @@ export const UsuarioView: React.FC<UsuarioViewProps> = ({ emailUsuarioLogueado }
   const [cargando, setCargando] = useState<boolean>(true);
 
   // Estados del formulario de seguridad (Modificar contraseña de la tienda)
-  const [passActual, setPassActual] = useState('');
+
   const [passNueva, setPassNueva] = useState('');
   const [confirmarPass, setConfirmarPass] = useState('');
   const [fuerzaPassword, setFuerzaPassword] = useState<'débil' | 'intermedio' | 'fuerte' | ''>('');
@@ -81,7 +81,7 @@ export const UsuarioView: React.FC<UsuarioViewProps> = ({ emailUsuarioLogueado }
 
       if (respuesta.ok) {
         alert('🎉 ¡Contraseña modificada con éxito!');
-        setPassActual('');
+
         setPassNueva('');
         setConfirmarPass('');
       } else {
