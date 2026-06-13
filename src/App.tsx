@@ -2,8 +2,8 @@ import { useState } from 'react';
 import './App.css'; 
 
 import { Footer } from './components/Footer';
-import { BienvenidaView } from './views/BienvenidaView';
-import { TiendaView } from './views/TiendaView'; 
+import { BienvenidaView } from './Views/BienvenidaView';
+import { TiendaView } from './Views/TiendaView'; 
 
 function App() {
   const [entorno, setEntorno] = useState<'bienvenida' | 'tienda'>('bienvenida');

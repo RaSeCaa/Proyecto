@@ -80,7 +80,6 @@ const manejarLogin = async (e: React.FormEvent) => {
       throw new Error("Credenciales inválidas");
     }
 
-    const usuarioAutenticado = await respuesta.json();
     
     // Si la respuesta es exitosa, le pasamos el correo a la app principal
     onLoginExitoso(email);
