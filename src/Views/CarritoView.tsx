@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './CarritoView.css';
 
-// Definimos la estructura exacta de cada item que guardas en tu carrito
 interface ItemCarrito {
   nombre: string;
   cantidad: number;
@@ -9,7 +8,7 @@ interface ItemCarrito {
 }
 
 interface CarritoProps {
-  items: ItemCarrito[]; // Recibe la lista completa de productos agregados
+  items: ItemCarrito[]; 
   totalCarrito: number;
   isLoggedIn?: boolean;
   linkQr: string | null; 
@@ -54,6 +53,7 @@ const manejarConfirmarPedido = async () => {
 
     // 🚀 MODIFICADO: Ahora la función interna también recibe el idCompraTexto
     const enviarFilaPeticion = async (productoTexto: string, montoFila: number, base64Data: string, idCompraTexto: string) => {
+      console.log("URL de destino:", import.meta.env.VITE_API_URL);
       const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/usuarios/enviar-comprobante-completo`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -62,7 +62,7 @@ const manejarConfirmarPedido = async () => {
           producto: productoTexto,
           monto: montoFila,
           imagenBase64: base64Data,
-          id_compra: idCompraTexto // 🚀 MANDAMOS EL ID UNIFICADOR AL BACKEND
+          id_compra: idCompraTexto 
         })
       });
       return respuesta.ok;
@@ -85,7 +85,6 @@ const manejarConfirmarPedido = async () => {
         });
       }
 
-      // 🚀 EL TRUCO: Generamos un ID único para ESTE clic de compra (milisegundos actuales)
       // Como se genera AQUÍ, afuera del bucle, será el mismo número para todos los productos de este carrito
       const codigoCompraUnico = Date.now().toString();
 
@@ -270,7 +269,7 @@ const manejarConfirmarPedido = async () => {
                   id="file-upload-input"
                   type="file" 
                   accept="image/*"
-                  onChange={manejarCambioArchivo} // Corregido el error de definición
+                  onChange={manejarCambioArchivo} 
                   className="input-file-hidden"
                 />
 
