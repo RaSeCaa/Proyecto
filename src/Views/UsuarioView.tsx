@@ -22,7 +22,7 @@ export const UsuarioView: React.FC<UsuarioViewProps> = ({ emailUsuarioLogueado }
     const obtenerCompras = async () => {
       try {
         setCargando(true);
-        const respuesta = await fetch(`http://localhost:3000/usuarios/mis-compras/${emailUsuarioLogueado}`);
+        const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/usuarios/mis-compras/${emailUsuarioLogueado}`);
         
         if (respuesta.ok) {
           const datos = await respuesta.json();
