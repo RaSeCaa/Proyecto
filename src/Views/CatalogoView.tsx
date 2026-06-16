@@ -25,7 +25,7 @@ interface CatalogoProps {
 
 export const CatalogoView: React.FC<CatalogoProps> = ({ 
   categoriaActiva, 
-  carritoActual = [], // Si no te lo pasan, por defecto es un arreglo vacío limpio
+  carritoActual = [], 
   onActualizarCarrito 
 }) => {
   const [productos, setProductos] = useState<Producto[]>([]);
@@ -36,7 +36,7 @@ export const CatalogoView: React.FC<CatalogoProps> = ({
     const cargarProductos = async () => {
       try {
         setCargando(true);
-        const respuesta = await fetch('http://localhost:3000/productos');
+        const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/productos`);
         if (!respuesta.ok) throw new Error('Error al conectar con el servidor');
         
         const datos = await respuesta.json();

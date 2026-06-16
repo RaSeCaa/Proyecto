@@ -31,13 +31,11 @@ export const TiendaView: React.FC<TiendaViewProps> = ({
   // Calcula el precio total acumulado de todos los productos añadidos
   const carritoPrecioTotal = listaCarrito.reduce((acc, item) => acc + (item.precioUnitario * item.cantidad), 0);
 
-  // 🌟 EFECTO EFICAZ: Jalar el QR desde la tabla usuarios
-// 🌟 CORRECCIÓN DENTRO DE TiendaView.tsx
+
 useEffect(() => {
   const obtenerQrAdmin = async () => {
     try {
-      // 💡 Cambiamos la ruta a la ruta exacta mapeada en tu NestJS
-      const respuesta = await fetch('http://localhost:3000/usuarios/qr-publico/1');
+      const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/usuarios/qr-publico/1`);
       
       if (!respuesta.ok) {
         throw new Error(`Error en el servidor: Código ${respuesta.status}`);

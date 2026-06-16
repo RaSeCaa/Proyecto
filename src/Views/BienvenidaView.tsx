@@ -67,7 +67,7 @@ const manejarLogin = async (e: React.FormEvent) => {
     setProcesando(true);
     
     // Enviamos un POST directo al controlador de NestJS
-    const respuesta = await fetch('http://localhost:3000/usuarios/login-operador', {
+    const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/usuarios/login-operador`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -111,7 +111,7 @@ const manejarLogin = async (e: React.FormEvent) => {
       setProcesando(true);
 
       // Enviamos la petición POST a la nueva ruta de NestJS
-      const respuesta = await fetch('http://localhost:3000/usuarios/registro', {
+      const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/usuarios/registro`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

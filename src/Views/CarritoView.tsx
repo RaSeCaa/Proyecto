@@ -54,7 +54,7 @@ const manejarConfirmarPedido = async () => {
 
     // 🚀 MODIFICADO: Ahora la función interna también recibe el idCompraTexto
     const enviarFilaPeticion = async (productoTexto: string, montoFila: number, base64Data: string, idCompraTexto: string) => {
-      const respuesta = await fetch('http://localhost:3000/usuarios/enviar-comprobante-completo', {
+      const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/usuarios/enviar-comprobante-completo`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

@@ -70,7 +70,7 @@ export const UsuarioView: React.FC<UsuarioViewProps> = ({ emailUsuarioLogueado }
 
     try {
       setProcesando(true);
-      const respuesta = await fetch('http://localhost:3000/usuarios/actualizar/0', {
+      const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/usuarios/actualizar/0`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

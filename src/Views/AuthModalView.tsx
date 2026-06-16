@@ -69,7 +69,7 @@ export const BienvenidaView: React.FC<BienvenidaProps> = ({
 
     try {
       setProcesando(true);
-      const respuesta = await fetch('http://localhost:3000/usuarios');
+      const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/usuarios`);
       if (!respuesta.ok) throw new Error("Error de conexión.");
       const usuarios = await respuesta.json();
 
@@ -104,7 +104,7 @@ export const BienvenidaView: React.FC<BienvenidaProps> = ({
 
     try {
       setProcesando(true);
-      const verificarRes = await fetch('http://localhost:3000/usuarios');
+      const verificarRes = await fetch(`${import.meta.env.VITE_API_URL}/usuarios`);
       const usuarios = await verificarRes.json();
       
       if (usuarios.some((u: any) => u.email.toLowerCase() === email.trim().toLowerCase())) {
@@ -118,7 +118,7 @@ export const BienvenidaView: React.FC<BienvenidaProps> = ({
         qr_recaudacion: null
       };
 
-      const respuesta = await fetch('http://localhost:3000/usuarios', {
+      const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/usuarios`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(nuevoUsuario)
